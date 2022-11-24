@@ -13,6 +13,9 @@ import torchvision.models as models
 from utils import progress_bar
 from datat_set import AugmentedDataset
 
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
 
 def load_data(ds_name, val_size=5000):
     # Data

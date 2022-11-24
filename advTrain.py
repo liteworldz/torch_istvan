@@ -12,6 +12,9 @@ import torchattacks
 import torchvision.models as models
 from utils import progress_bar
 from datat_set import AugmentedDataset
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
 
 EPS= 8/255
 ALPHA= 2/255
