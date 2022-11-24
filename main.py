@@ -9,7 +9,7 @@ os.environ['CUDA_VISIBLE_DEVICES'] = '2'
 
 import argparse
 
-from models import *
+import torchvision.models as models
 from utils import progress_bar
 from datat_set import AugmentedDataset
 
@@ -86,13 +86,13 @@ def evaluate(net, testloader, device, criterion):
 
 def get_model_by_name(name, n_classes):
     if name == "vgg19":
-        net = VGG('VGG19', num_classes=n_classes)
+        net = models.resnet34()#VGG('VGG19', num_classes=n_classes)
     elif name == "resnet18":
-        net = ResNet18(num_classes=n_classes)
+        net = models.resnet18() #(num_classes=n_classes)
     elif name == "preactresnet18":
-        net = PreActResNet18(num_classes=n_classes)
+        net = models.resnet34()#(num_classes=n_classes)
     elif name == "lenet":
-        net = LeNet(num_classes=n_classes)
+        net = models.resnet34()#LeNet(num_classes=n_classes)
     else:
         raise Exception('Unknown network name: {0}'.format(name))
     # @TODO: add other networks
