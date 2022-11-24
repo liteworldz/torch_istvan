@@ -3,7 +3,9 @@
     - msr_init: net parameter initialization.
     - progress_bar: progress bar mimic xlua.progress.
 '''
+
 import os
+os.environ['CUDA_VISIBLE_DEVICES'] = '2'
 import sys
 import time
 import math

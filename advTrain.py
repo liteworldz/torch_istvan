@@ -5,7 +5,7 @@ import torchvision, torch
 import torchvision.transforms as transforms
 
 import os
-os.environ['CUDA_VISIBLE_DEVICES'] = '0'
+os.environ['CUDA_VISIBLE_DEVICES'] = '2'
 
 import argparse
 import torchattacks
@@ -215,7 +215,7 @@ if __name__ == '__main__':
     parser.add_argument('--valsize', type=int, default=5000)
     parser.add_argument('--batch_size', type=int, default=128)
     parser.add_argument('--epochs', type=int, default=100)
-    parser.add_argument('--netname', type=str, default="preactresnet18")
+    parser.add_argument('--netname', type=str, default="resnet18")
     parser.add_argument('--lr', default=0.1, type=float, help='learning rate')
     parser.add_argument('--resume', '-r', action='store_true', help='resume from checkpoint')
     args = parser.parse_args()
