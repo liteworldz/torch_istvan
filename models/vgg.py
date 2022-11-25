@@ -2,6 +2,7 @@
 import torch
 import torch.nn as nn
 
+
 cfg = {
     'VGG11': [64, 'M', 128, 'M', 256, 256, 'M', 512, 512, 'M', 512, 512, 'M'],
     'VGG13': [64, 64, 'M', 128, 128, 'M', 256, 256, 'M', 512, 512, 'M', 512, 512, 'M'],
@@ -11,10 +12,10 @@ cfg = {
 
 
 class VGG(nn.Module):
-    def __init__(self, vgg_name, num_classes=10):
+    def __init__(self, vgg_name):
         super(VGG, self).__init__()
         self.features = self._make_layers(cfg[vgg_name])
-        self.classifier = nn.Linear(512, num_classes)
+        self.classifier = nn.Linear(512, 10)
 
     def forward(self, x):
         out = self.features(x)
@@ -39,7 +40,7 @@ class VGG(nn.Module):
 
 def test():
     net = VGG('VGG11')
-    x = torch.randn(2, 3, 32, 32)
+    x = torch.randn(2,3,32,32)
     y = net(x)
     print(y.size())
 
